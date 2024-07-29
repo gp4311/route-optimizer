@@ -59,6 +59,7 @@ namespace Helpers
 
             // Get distance and duration from last visited stop to end
             var apiResponseEnd = await apiService.GetData(new[] { route.Stops.Last() }, new[] { end }, avoid, departureTime, mode);
+            route.Stops.Add(end);
             double distanceToEnd = apiResponseEnd.Rows[0].Elements[0].Distance.Value;
             double durationToEnd = apiResponseEnd.Rows[0].Elements[0].Duration.Value;
 
