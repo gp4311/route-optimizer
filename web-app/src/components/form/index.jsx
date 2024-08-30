@@ -1,9 +1,9 @@
 import './styles.css';
 import React, { useState } from 'react';
 import LocationSearch from '../location-search';
+import DynamicStopsList from '../dynamic-stops-list';
 
 const Form = () => {
-
     const [ start, setStart ] = useState(null);
     const [ end, setEnd ] = useState(null);
     const [ stops, setStops ] = useState([]);
@@ -46,6 +46,7 @@ const Form = () => {
 
             <div>
                 <label>Stops:</label>
+                <DynamicStopsList onStopsSelected={setStops}/>
             </div>
 
             <div>

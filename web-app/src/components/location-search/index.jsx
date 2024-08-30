@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { LoadScript, Autocomplete } from '@react-google-maps/api';
+import { Autocomplete } from '@react-google-maps/api';
 import './styles.css'
-
-const libraries = ['places'];
 
 const LocationSearch = ({ onPlaceSelected }) => {
 
@@ -22,15 +20,13 @@ const LocationSearch = ({ onPlaceSelected }) => {
     }
 
     return (
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY} libraries={libraries}>
-            <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-                <input
-                    type="text"
-                    placeholder="Enter a location"
-                    ref={inputRef}
-                />
-            </Autocomplete>
-        </LoadScript>
+        <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+            <input
+                type="text"
+                placeholder="Enter a location"
+                ref={inputRef}
+            />
+        </Autocomplete>
     )
 }
 
