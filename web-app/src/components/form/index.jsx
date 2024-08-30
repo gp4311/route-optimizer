@@ -45,8 +45,16 @@ const Form = () => {
             </div>
 
             <div>
-                <label>Stops:</label>
+                <label>Stops</label>
                 <DynamicStopsList onStopsSelected={setStops}/>
+            </div>
+
+            <div>
+                <label>Departure Time:</label>
+                <input 
+                    type='datetime-local'
+                    onChange={(e) => setDepartureTime(e.target.value)}
+                />
             </div>
 
             <div>
