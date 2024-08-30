@@ -1,0 +1,15 @@
+input[type=radio] {
+    margin: 0 5px;
+    width: fit-content;
+}
+
+input[type=checkbox] {
+    margin: 0 5px;
+    width: fit-content;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
