@@ -6,7 +6,7 @@ using Helpers;
 namespace RouteOptimization.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/v1/optimize")]
     public class Controller : ControllerBase
     {
         private readonly ApiSettings _settings;

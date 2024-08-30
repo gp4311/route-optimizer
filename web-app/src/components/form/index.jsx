@@ -2,6 +2,7 @@ import './styles.css';
 import React, { useState } from 'react';
 import LocationSearch from '../location-search';
 import DynamicStopsList from '../dynamic-stops-list';
+import axios from 'axios';
 
 const Form = () => {
     const [ start, setStart ] = useState(null);
@@ -9,7 +10,10 @@ const Form = () => {
     const [ stops, setStops ] = useState([]);
     const [ avoid, setAvoid ] = useState([]);
     const [ departureTime, setDepartureTime ] = useState(null);
-    const [ mode, setMode ] = useState('driving')
+    const [ mode, setMode ] = useState('driving');
+
+    const [ result, setResult ] = useState(null);
+    const [ error, setError ] = useState(null);
 
     const handleAvoidChange = (event) => {
         const { value, checked } = event.target;
@@ -18,7 +22,7 @@ const Form = () => {
         );
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = {
             start,
@@ -29,7 +33,15 @@ const Form = () => {
             mode,
         };
         console.log(formData);
-        // Send formData to a server or use it as needed.
+    
+        try {
+            const response = await axios.post(process.env.REACT_APP_WEB_API_URL, formData);
+            setResult(response.data);
+            setError(null);
+        } catch (err) {
+            setError(err.response ? err.response.data : 'An error occurred');
+            setResult(null);
+        }
     };
 
     return (
