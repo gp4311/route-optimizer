@@ -5,15 +5,15 @@ import DynamicStopsList from '../dynamic-stops-list';
 import axios from 'axios';
 
 const Form = ({ onResultReceived }) => {
-    const [ start, setStart ] = useState(null);
-    const [ end, setEnd ] = useState(null);
-    const [ stops, setStops ] = useState([]);
-    const [ avoid, setAvoid ] = useState([]);
-    const [ departureTime, setDepartureTime ] = useState(null);
-    const [ mode, setMode ] = useState('driving');
+    const [start, setStart] = useState(null);
+    const [end, setEnd] = useState(null);
+    const [stops, setStops] = useState([]);
+    const [avoid, setAvoid] = useState([]);
+    const [departureTime, setDepartureTime] = useState(null);
+    const [mode, setMode] = useState('driving');
 
-    const [ result, setResult ] = useState(null);
-    const [ error, setError ] = useState(null);
+    const [result, setResult] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleAvoidChange = (event) => {
         const { value, checked } = event.target;
@@ -36,7 +36,7 @@ const Form = ({ onResultReceived }) => {
             departureTime,
             mode,
         };
-    
+
         try {
             const response = await axios.post(process.env.REACT_APP_WEB_API_URL, formData);
             setResult(response.data);
@@ -61,12 +61,12 @@ const Form = ({ onResultReceived }) => {
 
             <div>
                 <label>Stops</label>
-                <DynamicStopsList onStopsSelected={setStops}/>
+                <DynamicStopsList onStopsSelected={setStops} />
             </div>
 
             <div>
                 <label>Departure Time:</label>
-                <input 
+                <input
                     type='datetime-local'
                     onChange={(e) => setDepartureTime(e.target.value)}
                 />
@@ -109,7 +109,7 @@ const Form = ({ onResultReceived }) => {
                 <label>Mode of Transportation</label>
                 <div className='list'>
                     <label>
-                        <input 
+                        <input
                             type='radio'
                             value='driving'
                             checked={mode === 'driving'}
@@ -118,7 +118,7 @@ const Form = ({ onResultReceived }) => {
                         Driving
                     </label>
                     <label>
-                        <input 
+                        <input
                             type='radio'
                             value='bicycling'
                             checked={mode === 'bicycling'}
@@ -127,7 +127,7 @@ const Form = ({ onResultReceived }) => {
                         Bicycling
                     </label>
                     <label>
-                        <input 
+                        <input
                             type='radio'
                             value='walking'
                             checked={mode === 'walking'}
