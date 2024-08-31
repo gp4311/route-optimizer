@@ -1,10 +1,10 @@
 import './styles.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LocationSearch from '../location-search';
 import DynamicStopsList from '../dynamic-stops-list';
 import axios from 'axios';
 
-const Form = () => {
+const Form = ({ onResultReceived }) => {
     const [ start, setStart ] = useState(null);
     const [ end, setEnd ] = useState(null);
     const [ stops, setStops ] = useState([]);
@@ -22,6 +22,10 @@ const Form = () => {
         );
     };
 
+    useEffect(() => {
+        onResultReceived(result)
+    }, [result])
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = {
@@ -32,7 +36,6 @@ const Form = () => {
             departureTime,
             mode,
         };
-        console.log(formData);
     
         try {
             const response = await axios.post(process.env.REACT_APP_WEB_API_URL, formData);
