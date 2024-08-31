@@ -48,7 +48,7 @@ const Form = ({ onResultReceived }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form-section'>
             <div>
                 <label>Start:</label>
                 <LocationSearch onPlaceSelected={setStart} />

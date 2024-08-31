@@ -8,6 +8,10 @@ input[type=checkbox] {
     width: fit-content;
 }
 
+.form-section {
+    height: fit-content;
+}
+
 .list {
     display: flex;
     flex-direction: column;

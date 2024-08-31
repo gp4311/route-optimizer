@@ -20,12 +20,16 @@ function App() {
   }
 
   return (
-    <div className='app'>
-      <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY} libraries={libraries}>
-        <Form onResultReceived={handleResultReceived}/>
-        <Result stops={stops} time={time} distance={distance}/>
-      </LoadScript>
-    </div>
+    <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY} libraries={libraries}>
+      <div className='app'>
+        <section className='form'>
+          <Form onResultReceived={handleResultReceived}/>
+        </section>
+        <section className='result'>
+          <Result stops={stops} time={time} distance={distance}/>
+        </section>
+      </div>
+    </LoadScript>
   );
 }
 

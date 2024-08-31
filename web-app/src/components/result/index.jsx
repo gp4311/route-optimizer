@@ -35,17 +35,24 @@ const Result = ({ stops, time, distance }) => {
         fetchAddresses();
     }, [stops, time, distance]);
 
+    const round = (value, precision) => {
+        const multiplier = Math.pow(10, precision || 0);
+        return Math.round(value * multiplier) / multiplier;
+    }
+
     return (
         <div>
             <div>
-                {addresses.map((address, index) => (
-                    <div key={index}>
-                        <p>{address}</p>
-                    </div>
-                ))}
+                <div className='result-title'>
+                    {addresses.length > 0 ? 'Here\'s your optimized trip!' : null}
+                </div>
+                <ol className='result-list'>
+                    {addresses.map((address, index) => (
+                        <li key={index}>{address}</li>
+                    ))}
+                </ol>
             </div>
-            <div>Time: {time}</div>
-            <div>Distance: {distance}</div>
+            <div>{time && distance ? `This trip will take ${round(time/60, 1)} minutes and you'll travel ${round(distance/1000, 1)} km.` : null}</div>
         </div>
     );
 }
