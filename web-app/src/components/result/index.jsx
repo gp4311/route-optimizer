@@ -30,7 +30,6 @@ const Result = ({ stops, time, distance }) => {
             }
 
             setAddresses(fetchedAddresses);
-            console.log(fetchedAddresses);
         };
 
         fetchAddresses();
