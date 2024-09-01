@@ -47,7 +47,7 @@ namespace Helpers
                 var placeId = await placesApiService.GetPlaceId(apiResponse.DestinationAddresses[indexOfMin]);
 
                 route.Stops.Add(placeId);
-                unvisited.Remove(placeId);
+                unvisited.RemoveAt(indexOfMin);
 
                 // Add distance and time to the route object
                 route.Distance += minDistance;
