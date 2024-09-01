@@ -8,9 +8,49 @@ input[type=checkbox] {
     width: fit-content;
 }
 
+input[type=datetime-local] {
+    font-family: 'Open Sans';
+}
+
 .form-section {
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+    .form-section .form-lists {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+
+        .form-section .form-lists label {
+            font-size: small;
+            display: flex;
+            align-items: center;
+        }
+
+    .form-section .input-labels {
+        padding-bottom: 5px;
+        font-size: small;
+        font-weight: 600;
+    }
+
+    .form-section .submit-button {
+        text-align: center;
+    }
+
+        .form-section .submit-button button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(241, 242, 244);
+            border: 1px solid black;
+        }
+
+        .form-section .submit-button button:hover {
+            background-color: rgb(232, 233, 235);
+        }
 
 .list {
     display: flex;

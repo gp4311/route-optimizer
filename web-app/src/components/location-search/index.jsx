@@ -23,7 +23,7 @@ const LocationSearch = ({ onPlaceSelected }) => {
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
             <input
                 type="text"
-                placeholder="Enter a location"
+                placeholder=""
                 ref={inputRef}
             />
         </Autocomplete>

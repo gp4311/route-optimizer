@@ -4,17 +4,19 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-auto-rows: 1fr;
+    background-color: rgb(241, 242, 243);
+    min-height: 100vh;
 }
 
     .app .form {
-        background-color: white;
+        margin: 20px;
         height: fit-content;
         padding: 20px;
     }
 
     .app .result {
+        margin: 20px;
         background-color: rgb(232, 233, 235);
-        min-height: 100vh;
         padding: 30px;
         border-radius: 30px;
     }

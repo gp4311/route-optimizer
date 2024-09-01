@@ -1,0 +1,31 @@
+.stops {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+    .stop div {
+        width: 100%;
+    }
+
+    .stop button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgb(241, 242, 244);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+    }
+
+    .stop button:hover {
+        background-color: rgb(232, 233, 235);
+    }

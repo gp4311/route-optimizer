@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import LocationSearch from '../location-search';
+import './styles.css'
+import { FiPlus } from "react-icons/fi";
+import { RiDeleteBin7Line } from "react-icons/ri";
 
 const DynamicStopsList = ({ onStopsSelected }) => {
   const [stops, setStops] = useState([null]);
@@ -28,15 +31,17 @@ const DynamicStopsList = ({ onStopsSelected }) => {
   }, [stops]);
 
   return (
-    <div>
+    <div className='stops'>
       {stops.map((placeId, index) => (
-        <div key={index}>
-          <LocationSearch onPlaceSelected={(placeId) => handleStopSelected(placeId, index)} />
+        <div key={index} className='stop'>
+          <div>
+            <LocationSearch onPlaceSelected={(placeId) => handleStopSelected(placeId, index)} />
+          </div>
           <button onClick={() => addStop(index)}>
-            Add
+            <FiPlus />
           </button>
           <button onClick={() => removeStop(index)}>
-            Remove
+            <RiDeleteBin7Line />
           </button>
         </div>
       ))}
